@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lena Pro - Componentes Electrónicos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header class="header-flotante">
+        <nav class="nav-pill">
+            <input type="checkbox" id="check-menu" class="check-menu-oculto">
+
+            <div class="nav-mobile-header">
+                <a href="Web.html" class="logo-texto">Lena<span class="logo-resalte">Pro</span></a>
+
+                <label for="check-menu" class="btn-hamburguesa" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="nav-colapsable">
+                <ul class="nav-enlaces">
+                    <li><a href="Web.html" class="active">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="#" id="btn-abrir-politicas">Garantías</a></li>
+                </ul>
+
+                <div class="nav-accion">
+                    <a href="#" class="btn-cta-nav carrito-btn" id="btn-toggle-carrito"> 🛒
+                        <span id="contador-carrito">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="carrito-panel" class="carrito-panel oculto">
+        <h3>Tu carrito</h3>
+        <div id="carrito-items">
+            <p class="carrito-vacio">El carrito está vacío</p>
+        </div>
+        <div class="carrito-total">
+            <p>Total: S/ <span id="total">0.00</span></p>
+        </div>
+    </div>
+
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1>Potencia tu Innovación</h1>
+            <p>Componentes electrónicos de alta calidad para creadores y profesionales.</p>
+        </div>
+    </div>
+
+    <main>
+        <div class="carousel-wrapper">
+            <button id="btn-prev" class="carousel-btn">&lt;</button>
+
+            <div class="carousel-container">
+                <div id="carousel-track" class="carousel-track">
+
+                    <section class="carousel-slide">
+                        <div class="slide-text">
+                            <h2>Lena Pro</h2>
+                            <h3>Comienza a explorar</h3>
+                            <p>Somos un centro especializado en la venta de componentes electrónicos de alta calidad,
+                                pensado para atender las necesidades de fabricantes, técnicos, estudiantes y entusiastas
+                                de la tecnología.</p>
+                            <a href="catalogo.html" class="action-btn">Explorar el catálogo</a>
+                        </div>
+                        <div class="slide-image">
+                            <img class="carousel-img" src="img/tu-producto.jpg" alt="Productos Electrónicos">
+                        </div>
+                    </section>
+
+                    <section class="carousel-slide">
+                        <div class="slide-text">
+                            <h2>Nuestra Identidad</h2>
+                            <h3>Nuestra Historia</h3>
+                            <p>LenaPro inició como un emprendimiento de venta de productos electrónicos a través de
+                                Facebook. Con el crecimiento del negocio, surgió la necesidad de contar con una
+                                plataforma propia para mejorar la experiencia del usuario.</p>
+                        </div>
+                        <div class="slide-image">
+                            <img class="carousel-img" src="img/tu-historia.jpg" alt="Historia de Lena Pro">
+                        </div>
+                    </section>
+
+                    <section class="carousel-slide">
+                        <div class="slide-text">
+                            <h2>Nuestra Identidad</h2>
+                            <h3>Nuestra Misión</h3>
+                            <p>Proporcionar componentes de alta calidad y servicios excepcionales, facilitando el desarrollo tecnológico de nuestra comunidad.</p>
+                        </div>
+                        <div class="slide-image">
+                            <img class="carousel-img" src="img/tu-mision.jpg" alt="Misión de la empresa">
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+            <button id="btn-next" class="carousel-btn">&gt;</button>
+        </div>
+
+        </main>
+
+    <footer class="footer-premium">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Lena<span>Pro</span></h2>
+                <p>Innovación electrónica para creadores y profesionales.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <a href="Web.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="#" id="btn-abrir-politicas-footer">Garantías</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Cusco, Perú</p>
+                <p>soporte@lenapro.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 LenaPro — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <div id="modal-politicas" class="modal-overlay oculto">
+        <div class="modal-content">
+            <button id="btn-cerrar-modal" class="modal-close">&times;</button>
+            <h2>Políticas de Cambios y Garantías</h2>
+            <div class="modal-body">
+                <ol>
+                    <li>Comunícate a nuestro WhatsApp de soporte.</li>
+                    <li>Presenta el componente en su empaque original.</li>
+                    <li>Validación técnica en máximo 48 horas.</li>
+                </ol>
+                <p class="nota-modal">*Nota: No cubrimos daños por mala manipulación.</p>
+            </div>
+            <button id="btn-entendido" class="action-btn">Entendido</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

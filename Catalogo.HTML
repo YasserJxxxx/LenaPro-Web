@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | Lena Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="header-flotante">
+        <nav class="nav-pill">
+            <input type="checkbox" id="check-menu" class="check-menu-oculto">
+            <div class="nav-mobile-header">
+                <a href="Web.html" class="logo-texto">Lena<span class="logo-resalte">Pro</span></a>
+                <label for="check-menu" class="btn-hamburguesa" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </label>
+            </div>
+
+            <div class="nav-colapsable">
+                <ul class="nav-enlaces">
+                    <li><a href="Web.html">Inicio</a></li>
+                    <li><a href="catalogo.html" class="active">Catálogo</a></li>
+                    <li><a href="#" id="btn-abrir-politicas">Garantías</a></li>
+                </ul>
+                <div class="nav-accion">
+                    <a href="#" class="btn-cta-nav carrito-btn" id="btn-toggle-carrito"> 🛒
+                        <span id="contador-carrito">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="carrito-panel" class="carrito-panel oculto">
+        <h3>Tu carrito</h3>
+        <div id="carrito-items">
+            <p class="carrito-vacio">El carrito está vacío</p>
+        </div>
+        <div class="carrito-total">
+            <p>Total: S/ <span id="total">0.00</span></p>
+        </div>
+    </div>
+
+    <main style="padding-top: 100px; padding-bottom: 60px;">
+        
+        <div class="ofertas-full-width">
+            <div class="carrusel-ofertas-hero">
+                <button class="oferta-btn prev">&lt;</button>
+                <div class="ofertas-track">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop" alt="Oferta 1" class="oferta-img">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop" alt="Oferta 2" class="oferta-img">
+                </div>
+                <button class="oferta-btn next">&gt;</button>
+                <div class="ofertas-overlay"></div>
+            </div>
+
+            <div class="categorias-grid-botones">
+                <a href="?categoria=hardware" class="categoria-btn">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1000&auto=format&fit=crop" alt="Hardware">
+                    <span class="categoria-titulo">HARDWARE</span>
+                </a>
+                <a href="?categoria=software" class="categoria-btn">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop" alt="Software">
+                    <span class="categoria-titulo">SOFTWARE</span>
+                </a>
+            </div>
+        </div>
+
+        <section class="glitch-section">
+            <div style="text-align: center; margin-bottom: 30px; margin-top: 40px;">
+                <h2 class="glitch-heading" style="font-size: 3rem;">INVENTARIO PRO</h2>
+                <p style="color: var(--texto-suave); font-size: 1.2rem;">Encuentra los componentes exactos para tu próximo proyecto IoT.</p>
+            </div>
+
+            <div class="filtros-wrapper">
+                <div class="barra-busqueda">
+                    <input type="text" id="input-buscar" placeholder="Buscar por nombre o modelo (Ej. DHT22)...">
+                    <button id="btn-buscar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="botones-filtro">
+                    <a href="catalogo.html" class="btn-filtro">Ver Todos</a>
+                </div>
+            </div>
+
+            <div id="grid-productos" class="catalogo-grid">
+                
+                <article class="producto-card">
+                    <span class="badge badge-nuevo">NUEVO</span>
+                    <img src="https://m.media-amazon.com/images/I/51wY4GvYq8L._AC_SX679_.jpg" alt="Sensor de Temp. DHT22">
+                    <span class="producto-categoria">Capa de Percepción</span>
+                    <h3>Sensor de Temp. DHT22</h3>
+                    <p class="producto-precio">S/. 35.00 <span>PEN</span></p>
+                    <button class="btn-comprar">Añadir al carrito</button>
+                </article>
+
+                <article class="producto-card">
+                    <span class="badge badge-seller">BEST SELLER</span>
+                    <img src="https://m.media-amazon.com/images/I/61f1sL6p0YL._AC_SX679_.jpg" alt="Microcontrolador ESP32">
+                    <span class="producto-categoria">Nodo Edge</span>
+                    <h3>Microcontrolador ESP32</h3>
+                    <p class="producto-precio">S/. 60.00 <span>PEN</span></p>
+                    <button class="btn-comprar">Añadir al carrito</button>
+                </article>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-premium">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Lena<span>Pro</span></h2>
+                <p>Innovación electrónica para creadores y profesionales.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <a href="Web.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="#" id="btn-abrir-politicas-footer">Garantías</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Cusco, Perú</p>
+                <p>soporte@lenapro.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 LenaPro — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <div id="modal-politicas" class="modal-overlay oculto">
+        <div class="modal-content">
+            <button id="btn-cerrar-modal" class="modal-close">&times;</button>
+            <h2>Políticas de Cambios y Garantías</h2>
+            <div class="modal-body">
+                <ol>
+                    <li>Comunícate a nuestro WhatsApp de soporte.</li>
+                    <li>Presenta el componente en su empaque original.</li>
+                    <li>Validación técnica en máximo 48 horas.</li>
+                </ol>
+                <p class="nota-modal">*Nota: No cubrimos daños por mala manipulación.</p>
+            </div>
+            <button id="btn-entendido" class="action-btn">Entendido</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
