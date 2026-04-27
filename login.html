@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Administrativo | Lena Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #0B1021;
+            --bg-tarjeta: #11182B;
+            --acento-gamer: #4D7BFE;
+            --texto-brillante: #F8FAFC;
+            --texto-suave: #94A3B8;
+            --borde-sutil: #1E293B;
+        }
+        body {
+            margin: 0; padding: 0; font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base); color: var(--texto-brillante);
+            display: flex; justify-content: center; align-items: center; height: 100vh;
+        }
+        .login-box {
+            background-color: var(--bg-tarjeta); padding: 40px;
+            border-radius: 20px; border: 1px solid var(--borde-sutil);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            width: 100%; max-width: 400px; text-align: center;
+        }
+        .login-box h1 { margin-bottom: 5px; font-weight: 900; }
+        .login-box h1 span { color: var(--acento-gamer); }
+        .login-box p { color: var(--texto-suave); font-size: 0.9rem; margin-bottom: 30px; }
+        
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { display: block; margin-bottom: 8px; color: var(--texto-suave); font-size: 0.85rem; }
+        .input-group input {
+            width: 100%; padding: 12px 15px; box-sizing: border-box;
+            background-color: var(--bg-base); color: white;
+            border: 2px solid var(--borde-sutil); border-radius: 10px;
+            outline: none; transition: 0.3s;
+        }
+        .input-group input:focus { border-color: var(--acento-gamer); }
+        
+        .btn-login {
+            background-color: var(--acento-gamer); color: white;
+            width: 100%; padding: 14px; border: none; border-radius: 10px;
+            font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s;
+        }
+        .btn-login:hover { background-color: white; color: black; box-shadow: 0 0 15px var(--acento-gamer); }
+        .error-msg { color: #ef4444; font-size: 0.85rem; margin-top: 15px; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h1>Lena<span>Pro</span></h1>
+        <p>Panel de Administración Seguro</p>
+
+        <form id="form-login">
+            <div class="input-group">
+                <label for="admin-user">Usuario</label>
+                <input type="text" id="admin-user" placeholder="Ingresa tu usuario" required>
+            </div>
+            <div class="input-group">
+                <label for="admin-pass">Contraseña</label>
+                <input type="password" id="admin-pass" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn-login">Ingresar al Dashboard</button>
+            <p id="error-msg" class="error-msg">Credenciales incorrectas. Intenta de nuevo.</p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('form-login').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('admin-user').value;
+            const pass = document.getElementById('admin-pass').value;
+
+            // Por ahora hacemos una validación simple en frontend. 
+            // Luego el backend de Python validará esto por seguridad.
+            if(user === "admin" && pass === "lenapro2026") {
+                window.location.href = "admin.html"; // Redirige al dashboard
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

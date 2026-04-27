@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Lena Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--bg-base);
+            overflow-x: hidden;
+        }
+        /* BARRA LATERAL (SIDEBAR) */
+        
+        .admin-sidebar {
+            width: 260px;
+            background-color: var(--bg-tarjeta);
+            border-right: 1px solid var(--borde-sutil);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            z-index: 2000;
+        }
+        
+        .admin-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--texto-brillante);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .admin-logo span {
+            color: var(--acento-gamer);
+        }
+        
+        .admin-nav-btn {
+            background: transparent;
+            color: var(--texto-suave);
+            border: none;
+            padding: 15px;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+        
+        .admin-nav-btn:hover,
+        .admin-nav-btn.active {
+            background-color: rgba(77, 123, 254, 0.1);
+            color: var(--acento-gamer);
+        }
+        /* CONTENIDO PRINCIPAL */
+        
+        .admin-main {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .admin-title-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .admin-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0;
+            color: var(--texto-brillante);
+        }
+        
+        .btn-menu-mobile {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--borde-sutil);
+            color: var(--texto-brillante);
+            font-size: 1.5rem;
+            padding: 5px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        /* TABLAS ADAPTABLES */
+        
+        .admin-table-container {
+            background-color: var(--bg-tarjeta);
+            border: 1px solid var(--borde-sutil);
+            border-radius: 15px;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+        
+        .admin-table th,
+        .admin-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--borde-sutil);
+            color: var(--texto-brillante);
+        }
+        
+        .admin-table th {
+            background-color: rgba(11, 16, 33, 0.5);
+            color: var(--acento-pro);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        
+        .admin-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        /* BOTONES */
+        
+        .btn-accion {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+        
+        .btn-editar {
+            background-color: rgba(77, 123, 254, 0.2);
+            color: var(--acento-gamer);
+        }
+        
+        .btn-editar:hover {
+            background-color: var(--acento-gamer);
+            color: white;
+        }
+        
+        .btn-eliminar {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        .btn-eliminar:hover {
+            background-color: #ef4444;
+            color: white;
+        }
+        
+        .btn-nuevo {
+            background-color: var(--acento-gamer);
+            color: white;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        
+        .btn-nuevo:hover {
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 15px var(--acento-gamer);
+        }
+        
+        .oculto {
+            display: none !important;
+        }
+        
+        @media (max-width: 900px) {
+            .btn-menu-mobile {
+                display: block;
+            }
+            .admin-sidebar {
+                position: fixed;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                transform: translateX(-100%);
+                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.8);
+            }
+            .admin-sidebar.abierto {
+                transform: translateX(0);
+            }
+            .admin-main {
+                padding: 20px;
+            }
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .btn-nuevo {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="admin-sidebar" id="sidebar-admin">
+        <div class="admin-logo">
+            Lena<span>Pro</span>
+            <span style="font-size:0.8rem; color:var(--texto-suave); display:block; font-weight:400; letter-spacing: 2px;">DASHBOARD</span>
+            <button id="btn-cerrar-sidebar" class="btn-menu-mobile" style="position: absolute; right: 10px; top: 10px; border:none;">&times;</button>
+        </div>
+
+        <button class="admin-nav-btn active" id="tab-pedidos">📦 Pedidos Pendientes</button>
+        <button class="admin-nav-btn" id="tab-culminados">✅ Pedidos Culminados</button>
+        <button class="admin-nav-btn" id="tab-inventario">⚙️ Gestión de Inventario</button>
+        <button class="admin-nav-btn" id="tab-promos">🔥 Promociones</button>
+
+        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--borde-sutil);">
+            <a href="index.html" class="admin-nav-btn" style="text-decoration: none; color: var(--acento-calido);">🏠 Volver a la Tienda</a>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+
+        <section id="vista-pedidos">
+            <div class="admin-header">
+                <div class="admin-title-container">
+                    <button class="btn-menu-mobile toggle-sidebar">☰</button>
+                    <h1 class="admin-title">Pedidos Pendientes</h1>
+                </div>
+            </div>
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Orden / Fecha</th>
+                            <th>Cliente / Destino</th>
+                            <th>Total</th>
+                            <th>Productos</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-tbody-pedidos">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="vista-culminados" class="oculto">
+            <div class="admin-header">
+                <div class="admin-title-container">
+                    <button class="btn-menu-mobile toggle-sidebar">☰</button>
+                    <h1 class="admin-title">Historial de Ventas</h1>
+                </div>
+                <button class="btn-nuevo" style="background-color: #10b981;" onclick="exportarCSV()">📥 Exportar Reporte a CSV</button>
+            </div>
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Orden / Fecha</th>
+                            <th>Cliente / Destino</th>
+                            <th>Total</th>
+                            <th>Productos</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-tbody-culminados">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="vista-inventario" class="oculto">
+            <div class="admin-header">
+                <div class="admin-title-container">
+                    <button class="btn-menu-mobile toggle-sidebar">☰</button>
+                    <h1 class="admin-title">Inventario Pro</h1>
+                </div>
+                <button class="btn-nuevo" id="btn-agregar-producto">+ Nuevo Componente</button>
+            </div>
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Img</th>
+                            <th>Nombre del Producto</th>
+                            <th>Precio Normal</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-tbody-productos">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="vista-promos" class="oculto">
+            <div class="admin-header">
+                <div class="admin-title-container">
+                    <button class="btn-menu-mobile toggle-sidebar">☰</button>
+                    <h1 class="admin-title">Gestión de Ofertas</h1>
+                </div>
+            </div>
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Img</th>
+                            <th>Producto en Oferta</th>
+                            <th>Precio Base</th>
+                            <th>Precio Oferta</th>
+                            <th>Fecha Límite</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-tbody-promos">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="modal-producto" class="modal-overlay oculto">
+        <div class="modal-content" style="max-width: 650px; width: 95%; max-height: 90vh; overflow-y: auto;">
+            <button id="btn-cerrar-modal-prod" class="modal-close">&times;</button>
+            <h2 id="modal-titulo-prod" style="color: var(--texto-brillante); margin-bottom: 20px;">Modificar Componente</h2>
+
+            <form id="form-producto">
+                <input type="hidden" id="prod-id">
+
+                <div style="margin-bottom: 15px;">
+                    <label style="color: var(--texto-suave); font-size: 0.85rem; display: block; margin-bottom: 5px;">Nombre del Producto</label>
+                    <input type="text" id="prod-nombre" required style="width: 100%; padding: 12px; background: var(--bg-base); border: 1px solid var(--borde-sutil); color: white; border-radius: 8px; outline: none; box-sizing: border-box;">
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <label style="color: var(--texto-suave); font-size: 0.85rem; display: block; margin-bottom: 5px;">Categoría</label>
+                        <select id="prod-categoria" style="width: 100%; padding: 12px; background: var(--bg-base); border: 1px solid var(--borde-sutil); color: white; border-radius: 8px; outline: none;">
+                            <option value="microcontroladores">Microcontroladores</option>
+                            <option value="sensores">Sensores</option>
+                            <option value="software">Software</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="color: var(--texto-suave); font-size: 0.85rem; display: block; margin-bottom: 5px;">Precio Normal (S/)</label>
+                        <input type="number" id="prod-precio-normal" step="0.01" required style="width: 100%; padding: 12px; background: var(--bg-base); border: 1px solid var(--borde-sutil); color: white; border-radius: 8px; outline: none; box-sizing: border-box;">
+                    </div>
+                    <div>
+                        <label style="color: var(--texto-suave); font-size: 0.85rem; display: block; margin-bottom: 5px;">Stock</label>
+                        <input type="number" id="prod-stock" required style="width: 100%; padding: 12px; background: var(--bg-base); border: 1px solid var(--borde-sutil); color: white; border-radius: 8px; outline: none; box-sizing: border-box;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 15px; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid var(--borde-sutil);">
+                    <label style="color: var(--texto-suave); font-size: 0.85rem; display: block; margin-bottom: 5px;">Imagen del Producto (JPG/PNG)</label>
+                    <input type="file" id="prod-imagen-file" accept="image/*" style="width: 100%; color: white; font-size: 0.9rem;">
+                    <input type="hidden" id="imagen-actual">
+                    <small style="color: gray; display: block; margin-top: 5px;">Deja este campo vacío si deseas mantener la imagen actual.</small>
+                </div>
+
+                <label style="display: flex; align-items: center; cursor: pointer; margin-bottom: 20px; background: rgba(77, 123, 254, 0.05); padding: 10px; border-radius: 8px;">
+                    <input type="checkbox" id="prod-destacado" style="width: 18px; height: 18px; margin-right: 10px;">
+                    <span style="color: var(--texto-brillante); font-weight: bold;">⭐ Marcar como Destacado (Prioridad en Showcase)</span>
+                </label>
+
+                <div style="background: rgba(246, 177, 115, 0.05); border: 1px solid rgba(246, 177, 115, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 25px;">
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="checkbox" id="prod-promocion" style="width: 18px; height: 18px; margin-right: 10px;">
+                        <span style="color: var(--acento-calido); font-weight: bold;">Activar Promoción / Descuento Temporal</span>
+                    </label>
+                    <div id="opciones-promo" class="oculto" style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label style="color: var(--texto-suave); font-size: 0.8rem; display: block; margin-bottom: 5px;">Precio Oferta (S/)</label>
+                            <input type="number" id="prod-precio-oferta" step="0.01" style="width: 100%; padding: 10px; background: var(--bg-base); border: 1px solid var(--borde-sutil); color: white; border-radius: 5px; outline: none; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="color: var(--texto-suave); font-size: 0.8rem; display: block; margin-bottom: 5px;">Finaliza (Fecha y Hora exacta):</label>
+                            <input type="datetime-local" id="prod-fin-promo" style="width: 100%; padding: 10px; background: var(--bg-base); border: 1px solid var(--borde-sutil); color: white; border-radius: 5px; outline: none; box-sizing: border-box;">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-nuevo" style="width: 100%; padding: 15px; font-size: 1.1rem;">💾 Guardar Cambios en Servidor</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | Lena Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="header-flotante">
+        <nav class="nav-pill">
+            <input type="checkbox" id="check-menu" class="check-menu-oculto">
+            <div class="nav-mobile-header">
+                <a href="index.html" class="logo-texto">Lena<span class="logo-resalte">Pro</span></a>
+                <label for="check-menu" class="btn-hamburguesa" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </label>
+            </div>
+
+            <div class="nav-colapsable">
+                <ul class="nav-enlaces">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="Catalogo.html" class="active">Catálogo</a></li>
+                    <li><a href="#" id="btn-abrir-politicas">Garantías</a></li>
+                </ul>
+                <div class="nav-accion">
+                    <a href="#" class="btn-cta-nav carrito-btn" id="btn-toggle-carrito" aria-label="Ver carrito de compras"> 🛒
+                        <span id="contador-carrito">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="carrito-panel" class="carrito-panel oculto">
+        <h3>Tu carrito</h3>
+        <div id="carrito-items">
+            <p class="carrito-vacio">El carrito está vacío</p>
+        </div>
+        <div class="carrito-total">
+            <p>Total: S/ <span id="total">0.00</span></p>
+        </div>
+        <button id="btn-abrir-checkout" class="btn-finalizar-compra" style="margin-top: 15px;">Finalizar compra</button>
+    </div>
+
+    <div id="checkout" class="checkout oculto">
+        <div class="checkout-contenido">
+            <h2 style="margin-bottom: 15px; font-size: 1.8rem;">Resumen de compra</h2>
+            
+            <div id="checkout-items" style="margin-bottom: 15px; max-height: 200px; overflow-y: auto; padding-right: 10px;"></div>
+            
+            <div class="checkout-total" style="font-size: 1.5rem; margin-bottom: 20px; color: var(--acento-gamer); font-weight: bold; border-top: 1px solid var(--borde-sutil); padding-top: 15px;">
+                Total a pagar: S/ <span id="checkout-total">0.00</span>
+            </div>
+
+            <form id="form-checkout" class="checkout-form-container">
+                <div class="checkout-form">
+                    <h3 style="margin-bottom: 15px; color: var(--texto-suave);">Datos para la Etiqueta de Envío</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                        <input type="text" id="envio-nombre" placeholder="Nombres y Apellidos completos" required>
+                        <input type="text" id="envio-dni" placeholder="DNI / RUC" pattern="[0-9]{8,11}" title="Debe contener entre 8 y 11 dígitos numéricos" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                        <input type="tel" id="envio-celular" placeholder="Celular (Ej. 987654321)" pattern="9[0-9]{8}" title="Debe empezar con 9 y tener 9 dígitos" required>
+                        <input type="email" id="envio-email" placeholder="Correo Electrónico para recibo" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                        <input type="text" id="envio-departamento" placeholder="Región (Ej. Cusco)" required>
+                        <input type="text" id="envio-provincia" placeholder="Provincia (Ej. Cusco)" required>
+                        <input type="text" id="envio-distrito" placeholder="Distrito (Ej. Wanchaq, San Sebastián)" required>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="text" id="envio-direccion" placeholder="Dirección exacta (Av, Calle, Nro, Urb)" required>
+                        <input type="text" id="envio-referencia" placeholder="Referencia de llegada (Ej. Casa amarilla de 2 pisos, frente al manante)" required>
+                        <input type="text" id="envio-codigo-postal" placeholder="Código Postal (Opcional)">
+                    </div>
+                </div>
+
+                <div class="metodos-pago" style="margin-bottom: 20px; margin-top: 20px;">
+                    <h3 style="margin-bottom: 10px; color: var(--texto-suave);">Elige una forma de pago</h3>
+                    <label class="opcion-pago">
+                        <input type="radio" name="pago" value="tarjeta" required checked>
+                        <span style="margin-left: 10px; color: white;">Tarjeta de Crédito o Débito</span>
+                    </label>
+                    <label class="opcion-pago">
+                        <input type="radio" name="pago" value="yape">
+                        <span style="margin-left: 10px; color: white;">Yape / Plin</span>
+                    </label>
+                    <label class="opcion-pago">
+                        <input type="radio" name="pago" value="transferencia">
+                        <span style="margin-left: 10px; color: white;">Transferencia Bancaria</span>
+                    </label>
+                </div>
+
+                <div class="checkout-botones">
+                    <button type="button" id="btn-volver-carrito" class="btn-volver">← Volver</button>
+                    <button type="submit" id="btn-confirmar-pago" class="btn-confirmar-pago">Confirmar y Pagar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <main style="padding-top: 100px; padding-bottom: 60px;">
+        
+        <div class="ofertas-full-width">
+            <div class="carrusel-ofertas-hero">
+                <button class="oferta-btn prev">&lt;</button>
+                <div class="ofertas-track">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop" alt="Oferta 1" class="oferta-img">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop" alt="Oferta 2" class="oferta-img">
+                </div>
+                <button class="oferta-btn next">&gt;</button>
+                <div class="ofertas-overlay"></div>
+            </div>
+
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; width: 100%; max-width: 1200px; margin: -50px auto 0 auto; position: relative; z-index: 20; padding: 0 20px;">
+                
+                <button data-tipo="hardware" class="categoria-btn filtro-tipo" style="flex: 1 1 280px; max-width: 360px; height: 160px; background: transparent; border: 2px solid var(--borde-sutil); cursor: pointer; text-align: center; padding: 0; position: relative; border-radius: 20px; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1000&auto=format&fit=crop" alt="Hardware" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4; transition: all 0.5s ease; pointer-events: none;">
+                    <span class="categoria-titulo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--texto-brillante); font-size: 2rem; font-weight: 900; z-index: 2; pointer-events: none;">HARDWARE</span>
+                </button>
+                
+                <button data-tipo="software" class="categoria-btn filtro-tipo" style="flex: 1 1 280px; max-width: 360px; height: 160px; background: transparent; border: 2px solid var(--borde-sutil); cursor: pointer; text-align: center; padding: 0; position: relative; border-radius: 20px; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop" alt="Software" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4; transition: all 0.5s ease; pointer-events: none;">
+                    <span class="categoria-titulo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--texto-brillante); font-size: 2rem; font-weight: 900; z-index: 2; pointer-events: none;">SOFTWARE</span>
+                </button>
+
+                <button class="categoria-btn banner-promo filtro-promo" style="flex: 1 1 280px; max-width: 360px; height: 160px; background: transparent; border: 2px solid var(--borde-sutil); cursor: pointer; text-align: center; padding: 0; position: relative; border-radius: 20px; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Promociones" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4; transition: all 0.5s ease; pointer-events: none;">
+                    <span class="categoria-titulo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--texto-brillante); font-size: 2rem; font-weight: 900; z-index: 2; pointer-events: none;">PROMOCIONES</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="ticker-ofertas">
+            <div class="ticker-track">
+                <span>🔥 ESP32 DevKit V1 — S/ 19.90 <s>S/ 28.00</s> &nbsp;|&nbsp;</span>
+                <span>⚡ COMBO DHT22 + HC-SR04 — S/ 18.00 <s>S/ 22.90</s> &nbsp;|&nbsp;</span>
+                <span>🎓 Curso Arduino desde Cero — S/ 39.00 <s>S/ 65.00</s> &nbsp;|&nbsp;</span>
+                <span>🔥 Arduino Uno R3 — S/ 28.00 <s>S/ 35.90</s> &nbsp;|&nbsp;</span>
+                <span>⚡ COMBO PRO ESP32 + DHT22 + HC-SR04 — S/ 42.00 <s>S/ 55.40</s> &nbsp;|&nbsp;</span>
+                <span>🎓 Curso ESP32 FreeRTOS — S/ 63.00 <s>S/ 95.00</s> &nbsp;|&nbsp;</span>
+                <span>🔥 Raspberry Pi Pico W — S/ 27.00 <s>S/ 32.00</s> &nbsp;|&nbsp;</span>
+                <span>🎓 Curso MicroPython IoT — S/ 55.00 <s>S/ 89.00</s> &nbsp;|&nbsp;</span>
+                <span>🔥 ESP32 DevKit V1 — S/ 19.90 <s>S/ 28.00</s> &nbsp;|&nbsp;</span>
+                <span>⚡ COMBO DHT22 + HC-SR04 — S/ 18.00 <s>S/ 22.90</s> &nbsp;|&nbsp;</span>
+                <span>🎓 Curso Arduino desde Cero — S/ 39.00 <s>S/ 65.00</s> &nbsp;|&nbsp;</span>
+                <span>🔥 Arduino Uno R3 — S/ 28.00 <s>S/ 35.90</s> &nbsp;|&nbsp;</span>
+            </div>
+        </div>
+
+        <section class="glitch-section">
+            <div style="text-align: center; margin-bottom: 30px; margin-top: 40px;">
+                <h2 class="glitch-heading" style="font-size: 3rem;">INVENTARIO PRO</h2>
+                <p style="color: var(--texto-suave); font-size: 1.2rem;">Encuentra los componentes exactos para tu próximo proyecto IoT.</p>
+            </div>
+
+            <div class="filtros-wrapper">
+                <div class="barra-busqueda">
+                    <input type="text" id="input-buscar" placeholder="Buscar por nombre o modelo (Ej. DHT22)...">
+                    <button id="btn-buscar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="botones-filtro">
+                    <a href="Catalogo.html" class="btn-filtro">Ver Todos</a>
+                </div>
+            </div>
+
+            <div id="grid-productos" class="catalogo-grid">
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer-premium">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Lena<span>Pro</span></h2>
+                <p>Innovación electrónica para creadores y profesionales.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <a href="index.html">Inicio</a>
+                <a href="Catalogo.html">Catálogo</a>
+                <a href="#" id="btn-abrir-politicas-footer">Garantías</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Cusco, Perú</p>
+                <p>soporte@lenapro.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="login.html" style="color: inherit; text-decoration: none; cursor: default;">©</a> 2026 LenaPro — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <div id="modal-politicas" class="modal-overlay oculto">
+        <div class="modal-content">
+            <button id="btn-cerrar-modal" class="modal-close">&times;</button>
+            <h2>Políticas de Cambios y Garantías</h2>
+            <div class="modal-body">
+                <ol>
+                    <li>Comunícate a nuestro WhatsApp de soporte.</li>
+                    <li>Presenta el componente en su empaque original.</li>
+                    <li>Validación técnica en máximo 48 horas.</li>
+                </ol>
+                <p class="nota-modal">*Nota: No cubrimos daños por mala manipulación.</p>
+            </div>
+            <button id="btn-entendido" class="action-btn">Entendido</button>
+        </div>
+    </div>
+
+    <div id="modal-promos" class="modal-overlay oculto">
+        <div class="modal-content" style="max-width: 1000px; width: 95%; max-height: 90vh; overflow-y: auto;">
+            <button id="btn-cerrar-promos" class="modal-close">&times;</button>
+            <h2 style="color: var(--acento-calido); margin-bottom: 25px;">🔥 Promociones Activas</h2>
+
+            <div id="grid-promos" class="catalogo-grid">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

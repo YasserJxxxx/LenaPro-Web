@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lena Pro - Componentes Electrónicos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header class="header-flotante">
+        <nav class="nav-pill">
+            <input type="checkbox" id="check-menu" class="check-menu-oculto">
+
+            <div class="nav-mobile-header">
+                <a href="index.html" class="logo-texto">Lena<span class="logo-resalte">Pro</span></a>
+
+                <label for="check-menu" class="btn-hamburguesa" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="nav-colapsable">
+                <ul class="nav-enlaces">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="Catalogo.html">Catálogo</a></li>
+                    <li><a href="#" id="btn-abrir-politicas">Garantías</a></li>
+                </ul>
+
+                <div class="nav-accion">
+                    <a href="#" class="btn-cta-nav carrito-btn" id="btn-toggle-carrito"> 🛒
+                        <span id="contador-carrito">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="carrito-panel" class="carrito-panel oculto">
+        <h3>Tu carrito</h3>
+        <div id="carrito-items">
+            <p class="carrito-vacio">El carrito está vacío</p>
+        </div>
+        <div class="carrito-total">
+            <p>Total: S/ <span id="total">0.00</span></p>
+        </div>
+        <button id="btn-abrir-checkout" class="btn-finalizar-compra" style="margin-top: 15px;">Finalizar compra</button>
+    </div>
+
+    <div id="checkout" class="checkout oculto">
+        <div class="checkout-contenido">
+            <h2 style="margin-bottom: 15px; font-size: 1.8rem;">Resumen de compra</h2>
+
+            <div id="checkout-items" style="margin-bottom: 15px; max-height: 200px; overflow-y: auto; padding-right: 10px;"></div>
+
+            <div class="checkout-total" style="font-size: 1.5rem; margin-bottom: 20px; color: var(--acento-gamer); font-weight: bold; border-top: 1px solid var(--borde-sutil); padding-top: 15px;">
+                Total a pagar: S/ <span id="checkout-total">0.00</span>
+            </div>
+
+            <form id="form-checkout" class="checkout-form-container">
+                <div class="checkout-form">
+                    <h3 style="margin-bottom: 15px; color: var(--texto-suave);">Datos para la Etiqueta de Envío</h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                        <input type="text" id="envio-nombre" placeholder="Nombres y Apellidos completos" required>
+                        <input type="text" id="envio-dni" placeholder="DNI / RUC" pattern="[0-9]{8,11}" title="Debe contener entre 8 y 11 dígitos numéricos" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                        <input type="tel" id="envio-celular" placeholder="Celular (Ej. 987654321)" pattern="9[0-9]{8}" title="Debe empezar con 9 y tener 9 dígitos" required>
+                        <input type="email" id="envio-email" placeholder="Correo Electrónico para recibo" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                        <input type="text" id="envio-departamento" placeholder="Región (Ej. Cusco)" required>
+                        <input type="text" id="envio-provincia" placeholder="Provincia (Ej. Cusco)" required>
+                        <input type="text" id="envio-distrito" placeholder="Distrito (Ej. Wanchaq)" required>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="text" id="envio-direccion" placeholder="Dirección exacta (Av, Calle, Nro, Urb)" required>
+                        <input type="text" id="envio-referencia" placeholder="Referencia (Ej. Casa verde frente al parque)" required>
+                    </div>
+                </div>
+
+                <div class="metodos-pago" style="margin-bottom: 20px; margin-top: 20px;">
+                    <h3 style="margin-bottom: 10px; color: var(--texto-suave);">Elige una forma de pago</h3>
+                    <label class="opcion-pago">
+                        <input type="radio" name="pago" value="tarjeta" required checked>
+                        <span style="margin-left: 10px; color: white;">Tarjeta de Crédito o Débito</span>
+                    </label>
+                    <label class="opcion-pago">
+                        <input type="radio" name="pago" value="yape">
+                        <span style="margin-left: 10px; color: white;">Yape / Plin</span>
+                    </label>
+                    <label class="opcion-pago">
+                        <input type="radio" name="pago" value="transferencia">
+                        <span style="margin-left: 10px; color: white;">Transferencia Bancaria</span>
+                    </label>
+                </div>
+
+                <div class="checkout-botones">
+                    <button type="button" id="btn-volver-carrito" class="btn-volver">← Volver</button>
+                    <button type="submit" id="btn-confirmar-pago" class="btn-confirmar-pago">Confirmar y Pagar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="hero-banner">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="video/hero.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-content">
+            <h1>Potencia tu Innovación</h1>
+            <p>Componentes electrónicos de alta calidad para creadores y profesionales.</p>
+        </div>
+    </div>
+
+    <main>
+        <section class="showcase-container" style="margin-top: 60px;">
+            <button id="showcase-prev" class="showcase-btn">&lt;</button>
+
+            <div class="showcase-track-wrapper">
+                <div id="showcase-track" class="showcase-track">
+                </div>
+            </div>
+
+            <button id="showcase-next" class="showcase-btn">&gt;</button>
+        </section>
+
+        <div class="carousel-wrapper">
+
+            <button id="btn-prev" class="carousel-btn">&lt;</button>
+
+            <div class="carousel-container">
+                <div id="carousel-track" class="carousel-track">
+
+                    <section class="carousel-slide">
+                        <div class="slide-text">
+                            <h2>Lena Pro</h2>
+                            <h3>Comienza a explorar</h3>
+                            <p>Somos un centro especializado en la venta de componentes electrónicos de alta calidad...</p>
+                            <a href="Catalogo.html" class="action-btn">Explorar el catálogo</a>
+                        </div>
+                        <div class="slide-image">
+                            <div class="shape-backdrop" style="background: linear-gradient(135deg, #1E293B, #0B1021);"></div>
+                            <img class="carousel-img" src="img/explorar.webp" alt="Productos Electrónicos">
+                        </div>
+                    </section>
+
+                    <section class="carousel-slide">
+                        <div class="slide-text">
+                            <h2>Nuestra Identidad</h2>
+                            <h3>Nuestra Historia</h3>
+                            <p>LenaPro inició como un emprendimiento de venta de productos electrónicos a través de Facebook...</p>
+                        </div>
+                        <div class="slide-image">
+                            <div class="shape-backdrop" style="background: linear-gradient(135deg, #4D7BFE, #1E3A8A);"></div>
+                            <img class="carousel-img" src="img/historia.jpeg" alt="Historia de Lena Pro">
+                        </div>
+                    </section>
+
+                    <section class="carousel-slide">
+                        <div class="slide-text">
+                            <h2>Nuestra Identidad</h2>
+                            <h3>Nuestra Misión</h3>
+                            <p>Proporcionar componentes de alta calidad y servicios excepcionales...</p>
+                        </div>
+                        <div class="slide-image">
+                            <div class="shape-backdrop" style="background: linear-gradient(135deg, #F6B173, #D97706);"></div>
+                            <img class="carousel-img" src="img/nuestramision.jpg" alt="Misión de la empresa">
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+            <button id="btn-next" class="carousel-btn">&gt;</button>
+        </div>
+
+    </main>
+
+    <footer class="footer-premium">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Lena<span>Pro</span></h2>
+                <p>Innovación electrónica para creadores y profesionales.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Explorar</h4>
+                <a href="index.html">Inicio</a>
+                <a href="Catalogo.html">Catálogo</a>
+                <a href="#" id="btn-abrir-politicas-footer">Garantías</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Cusco, Perú</p>
+                <p>soporte@lenapro.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p><a href="login.html" style="color: inherit; text-decoration: none; cursor: default;">©</a> 2026 LenaPro — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <div id="modal-politicas" class="modal-overlay oculto">
+        <div class="modal-content">
+            <button id="btn-cerrar-modal" class="modal-close">&times;</button>
+            <h2>Políticas de Cambios y Garantías</h2>
+            <div class="modal-body">
+                <ol>
+                    <li>Comunícate a nuestro WhatsApp de soporte.</li>
+                    <li>Presenta el componente en su empaque original.</li>
+                    <li>Validación técnica en máximo 48 horas.</li>
+                </ol>
+                <p class="nota-modal">*Nota: No cubrimos daños por mala manipulación.</p>
+            </div>
+            <button id="btn-entendido" class="action-btn">Entendido</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,369 @@
+{
+    "tienda": "LenaPro",
+    "descripcion": "Componentes electrónicos de alta calidad",
+    "version": "2.0",
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Arduino Uno R3",
+            "categoria": "microcontroladores",
+            "precio": 100,
+            "precio_normal": 125,
+            "stock": 15,
+            "imagen": "img/arduino-uno.jpg",
+            "moneda": "PEN",
+            "destacado": true,
+            "en_promocion": true,
+            "fin_promo": 1778737620000
+        },
+        {
+            "id": 2,
+            "nombre": "Arduino Nano",
+            "categoria": "microcontroladores",
+            "descripcion": "Versión compacta del Arduino Uno, perfecta para proyectos donde el espacio es reducido.",
+            "precio": 22.5,
+            "moneda": "PEN",
+            "stock": 40,
+            "imagen": "img/arduino-nano.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "voltaje": "5V",
+                "pines_digitales": 14,
+                "pines_analogicos": 8,
+                "flash": "32KB"
+            }
+        },
+        {
+            "id": 3,
+            "nombre": "Arduino Mega 2560",
+            "categoria": "microcontroladores",
+            "precio": 65,
+            "precio_normal": 65,
+            "stock": 15,
+            "imagen": "img/arduino-mega.jpg",
+            "moneda": "PEN",
+            "destacado": false,
+            "en_promocion": false,
+            "fin_promo": null
+        },
+        {
+            "id": 4,
+            "nombre": "Arduino Pro Mini 3.3V",
+            "categoria": "microcontroladores",
+            "precio": 18,
+            "precio_normal": 18,
+            "stock": 30,
+            "imagen": "img/arduino-promini.jpg",
+            "moneda": "PEN",
+            "destacado": true,
+            "en_promocion": false,
+            "fin_promo": null
+        },
+        {
+            "id": 5,
+            "nombre": "ESP32 DevKit V1",
+            "categoria": "microcontroladores",
+            "descripcion": "Potente microcontrolador con WiFi y Bluetooth integrado. Perfecto para proyectos IoT.",
+            "precio": 28,
+            "moneda": "PEN",
+            "stock": 23,
+            "imagen": "img/esp32.jpg",
+            "destacado": true,
+            "especificaciones": {
+                "voltaje": "3.3V",
+                "wifi": true,
+                "bluetooth": true,
+                "pines_digitales": 34,
+                "flash": "4MB"
+            }
+        },
+        {
+            "id": 6,
+            "nombre": "ESP32-CAM",
+            "categoria": "microcontroladores",
+            "descripcion": "Módulo ESP32 con cámara OV2640 integrada. Ideal para proyectos de visión artificial y vigilancia IoT.",
+            "precio": 38,
+            "moneda": "PEN",
+            "stock": 12,
+            "imagen": "img/esp32-cam.jpg",
+            "destacado": true,
+            "especificaciones": {
+                "voltaje": "5V",
+                "wifi": true,
+                "bluetooth": true,
+                "camara": "OV2640 2MP",
+                "flash": "4MB"
+            }
+        },
+        {
+            "id": 7,
+            "nombre": "ESP8266 NodeMCU",
+            "categoria": "microcontroladores",
+            "descripcion": "Módulo WiFi de bajo costo para proyectos IoT. Compatible con el ecosistema Arduino.",
+            "precio": 18.5,
+            "moneda": "PEN",
+            "stock": 50,
+            "imagen": "img/esp8266.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "voltaje": "3.3V",
+                "wifi": true,
+                "bluetooth": false,
+                "pines_digitales": 11,
+                "flash": "4MB"
+            }
+        },
+        {
+            "id": 8,
+            "nombre": "Raspberry Pi Pico",
+            "categoria": "microcontroladores",
+            "descripcion": "Microcontrolador de bajo costo basado en el chip RP2040. Soporta MicroPython y C/C++.",
+            "precio": 25,
+            "moneda": "PEN",
+            "stock": 20,
+            "imagen": "img/rpi-pico.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "voltaje": "3.3V",
+                "pines_digitales": 26,
+                "nucleos": 2,
+                "flash": "2MB",
+                "ram": "264KB"
+            }
+        },
+        {
+            "id": 9,
+            "nombre": "STM32 Blue Pill",
+            "categoria": "microcontroladores",
+            "descripcion": "Placa de desarrollo ARM Cortex-M3 de alto rendimiento. Popular en proyectos industriales y educativos.",
+            "precio": 20,
+            "moneda": "PEN",
+            "stock": 18,
+            "imagen": "img/stm32.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "voltaje": "3.3V",
+                "cpu": "ARM Cortex-M3 72MHz",
+                "pines_digitales": 37,
+                "flash": "64KB",
+                "ram": "20KB"
+            }
+        },
+        {
+            "id": 10,
+            "nombre": "ATtiny85 (DIP-8)",
+            "categoria": "microcontroladores",
+            "descripcion": "Microcontrolador ultra compacto de 8 pines. Perfecto para proyectos pequeños y wearables.",
+            "precio": 8,
+            "moneda": "PEN",
+            "stock": 35,
+            "imagen": "img/attiny85.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "voltaje": "1.8V - 5.5V",
+                "pines": 8,
+                "flash": "8KB",
+                "ram": "512B"
+            }
+        },
+        {
+            "id": 11,
+            "nombre": "Raspberry Pi Pico W",
+            "categoria": "microcontroladores",
+            "descripcion": "Versión del Pico con WiFi integrado basado en el chip RP2040. Ideal para proyectos IoT con MicroPython.",
+            "precio": 32,
+            "moneda": "PEN",
+            "stock": 14,
+            "imagen": "img/rpi-pico-w.jpg",
+            "destacado": true,
+            "especificaciones": {
+                "voltaje": "3.3V",
+                "wifi": true,
+                "nucleos": 2,
+                "flash": "2MB",
+                "ram": "264KB"
+            }
+        },
+        {
+            "id": 12,
+            "nombre": "Arduino Leonardo",
+            "categoria": "microcontroladores",
+            "descripcion": "Placa Arduino con USB nativo que permite emular teclado, ratón y joystick. Ideal para proyectos HID.",
+            "precio": 40,
+            "moneda": "PEN",
+            "stock": 10,
+            "imagen": "img/arduino-leonardo.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "voltaje": "5V",
+                "pines_digitales": 20,
+                "pines_analogicos": 12,
+                "flash": "32KB",
+                "usb_nativo": true
+            }
+        },
+        {
+            "id": 13,
+            "nombre": "Sensor Ultrasónico HC-SR04",
+            "categoria": "sensores",
+            "descripcion": "Sensor de distancia por ultrasonido. Mide distancias de 2cm a 400cm con precisión.",
+            "precio": 8.9,
+            "moneda": "PEN",
+            "stock": 60,
+            "imagen": "img/hc-sr04.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "voltaje": "5V",
+                "rango_min": "2cm",
+                "rango_max": "400cm",
+                "precision": "3mm"
+            }
+        },
+        {
+            "id": 14,
+            "nombre": "Sensor de Temperatura DHT11",
+            "categoria": "sensores",
+            "descripcion": "Sensor digital de temperatura y humedad relativa. Fácil de usar con Arduino y ESP32.",
+            "precio": 7.5,
+            "moneda": "PEN",
+            "stock": 45,
+            "imagen": "img/dht11.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "voltaje": "3.3V - 5V",
+                "rango_temperatura": "0°C a 50°C",
+                "rango_humedad": "20% a 90%",
+                "precision_temp": "±2°C"
+            }
+        },
+        {
+            "id": 15,
+            "nombre": "Sensor de Temperatura DHT22",
+            "categoria": "sensores",
+            "descripcion": "Versión mejorada del DHT11, con mayor rango y precisión. Recomendado para aplicaciones profesionales.",
+            "precio": 14,
+            "moneda": "PEN",
+            "stock": 20,
+            "imagen": "img/dht22.jpg",
+            "destacado": true,
+            "especificaciones": {
+                "voltaje": "3.3V - 5V",
+                "rango_temperatura": "-40°C a 80°C",
+                "rango_humedad": "0% a 100%",
+                "precision_temp": "±0.5°C"
+            }
+        },
+        {
+            "id": 16,
+            "nombre": "Licencia Arduino IDE Pro",
+            "categoria": "software",
+            "descripcion": "Acceso al editor avanzado de Arduino con autocompletado, depurador integrado y soporte para placas industriales.",
+            "precio": 45,
+            "moneda": "PEN",
+            "stock": 999,
+            "imagen": "img/arduino-ide.jpg",
+            "destacado": true,
+            "especificaciones": {
+                "version": "2.x",
+                "plataformas": "Windows, macOS, Linux",
+                "tipo": "Licencia anual"
+            }
+        },
+        {
+            "id": 17,
+            "nombre": "Curso MicroPython IoT",
+            "categoria": "software",
+            "descripcion": "Curso digital completo para programar ESP32 y Raspberry Pi Pico con MicroPython. Incluye proyectos reales.",
+            "precio": 89,
+            "moneda": "PEN",
+            "stock": 999,
+            "imagen": "img/micropython.jpg",
+            "destacado": true,
+            "especificaciones": {
+                "duracion": "40 horas",
+                "nivel": "Básico a Avanzado",
+                "acceso": "De por vida"
+            }
+        },
+        {
+            "id": 18,
+            "nombre": "Fritzing - Licencia Permanente",
+            "categoria": "software",
+            "descripcion": "Software de diseño de circuitos y PCB. Ideal para documentar proyectos Arduino y crear esquemas profesionales.",
+            "precio": 32,
+            "moneda": "PEN",
+            "stock": 999,
+            "imagen": "img/fritzing.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "version": "1.0+",
+                "plataformas": "Windows, macOS, Linux",
+                "tipo": "Pago único"
+            }
+        },
+        {
+            "id": 19,
+            "nombre": "Licencia Proteus Design Suite",
+            "categoria": "software",
+            "descripcion": "Software profesional de simulación de circuitos electrónicos. Simula Arduino, PIC y más antes de armar físicamente.",
+            "precio": 120,
+            "moneda": "PEN",
+            "stock": 999,
+            "imagen": "img/proteus.jpg",
+            "destacado": true,
+            "especificaciones": {
+                "version": "8.x",
+                "plataformas": "Windows",
+                "tipo": "Licencia anual"
+            }
+        },
+        {
+            "id": 20,
+            "nombre": "Curso Arduino desde Cero",
+            "categoria": "software",
+            "descripcion": "Curso digital completo para aprender Arduino desde cero. Incluye 60 proyectos prácticos con simulaciones.",
+            "precio": 65,
+            "moneda": "PEN",
+            "stock": 999,
+            "imagen": "img/curso-arduino.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "duracion": "50 horas",
+                "nivel": "Principiante",
+                "acceso": "De por vida"
+            }
+        },
+        {
+            "id": 21,
+            "nombre": "Licencia KiCad Pro",
+            "categoria": "software",
+            "descripcion": "Software open source para diseño de PCB profesional. Exporta directamente a fábrica de placas.",
+            "precio": 55,
+            "moneda": "PEN",
+            "stock": 999,
+            "imagen": "img/kicad.jpg",
+            "destacado": false,
+            "especificaciones": {
+                "version": "7.x",
+                "plataformas": "Windows, macOS, Linux",
+                "tipo": "Licencia permanente"
+            }
+        },
+        {
+            "id": 22,
+            "nombre": "Curso ESP32 con FreeRTOS",
+            "categoria": "software",
+            "descripcion": "Aprende a programar sistemas en tiempo real con ESP32 y FreeRTOS. Ideal para proyectos industriales IoT.",
+            "precio": 95,
+            "moneda": "PEN",
+            "stock": 999,
+            "imagen": "img/freertos.jpg",
+            "destacado": true,
+            "especificaciones": {
+                "duracion": "35 horas",
+                "nivel": "Intermedio a Avanzado",
+                "acceso": "De por vida"
+            }
+        }
+    ]
+}
